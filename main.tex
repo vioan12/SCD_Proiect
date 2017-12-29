@@ -1,0 +1,222 @@
+
+
+% preamble
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{ulem}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{ragged2e}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amssymb, amsthm, amsmath, amsfonts}
+
+\usepackage{latexsym}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+%% \usepackage{times}
+%% \usepackage{times}
+\usepackage{latexsym}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {image/} }
+\usepackage{xcolor}
+\usepackage{listings}
+
+\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+\lstdefinestyle{Java}{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=false,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  numbers=left,
+    numberstyle=\tiny\color{black},
+    stepnumber=1,
+    numbersep=10pt,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\usepackage{latexsym}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {image/} }
+\usepackage{xcolor}
+\usepackage{listings}
+\begin{document}
+
+% top matter
+
+	\title{\textbf{Sisteme Concurente \c{s}i Distribuite}\\Tem\u{a} de cas\u{a}}
+	\date{\large \today} 
+	\maketitle
+	\begin{tabbing}
+	\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+	\indent{\large Titlu:} \={\large \textit{Problema podului}}\\ \\
+	\indent{\large Profesor universitar:} \={\large Dr. Ing. Costin B\u{a}dic\u{a}}\\ \\
+    \indent{\large Student:} \={\large Voiculescu Ioan-Valentin}\\ \\
+    \indent{\large Facultate: Automatic\u{a}, Calculatoare \c{s}i Electronic\u{a}}\\ \\
+    \indent{\large Anul: III}\\ \\
+    \indent{\large Specializarea: Calculatoare Rom\^{a}n\u{a}}\\ \\
+    \indent{\large Grupa: CR 3.H1 B}\\ \\
+	\end{tabbing}
+	\newpage
+    \tableofcontents
+    \newpage
+
+
+\section{Declarac{t}ia problemei}
+\subsection{Titlu}
+\textit{Problema podului}
+\subsection {Enun\c{t}ul}
+\hspace{1em}
+\justifying
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=12cm]{enunt}
+    \label{fig:img1}
+\end{figure}
+\pagebreak
+
+\section{Proiectarea Aplica\c{t}iei}
+
+\subsection {Corectitudinea rezultatului}
+Corectitudinea unui program concurent presupune verificarea unor proprietati ale tuturor scenariilor posibile rezultate prin intreteserea arbitrara: 
+
+•  Proprietatea de siguranta (engl. safety). O proprietate de siguranta P este satisfacuta daca si numai daca pentru orice scenariu posibil si pentru orice stare ea este adevarata.
+
+In problema noastra aceasta proprietate este satisfacuta intrucat nicio masina nu se ciocneste (masinile circula intr-u singur sens la un moment dat).
+
+•  Proprietatea de vivacitate (engl. liveness). O proprietate de vivacitate P este satisfacuta daca si numai daca pentru orice scenariu posibil exista o stare in care ea este adevarata.
+
+In \textit{Problema podului} aceasta proprietate este satisfacuta, deoarce fiecare masina obtine la un moment dat sansa de a trece peste pod.
+
+\subsection {Clasa Main}
+\hspace{1em}
+\justifying
+Clasament Main este clasa principală în care creez Threadul principal \textbf{thread[0]}.
+
+\subsection {Clasa Masina}
+\hspace{1em}
+\justifying
+In această clasă voi avea proprietățile despre o mașină producator, model, an, număr înmatriculare.
+
+\subsection {Clasa Read}
+\hspace{1em}
+\justifying
+Această clasă se va ocupa de citirea datelor din fișier.
+
+\subsection {Clasa Write}
+\hspace{1em}
+\justifying
+Această clasă se va ocupa de scrierea datelor în consolă. Functia \textbf{console()} va afișa starea actuală a podului.
+
+\subsection {Clasa MainThread}
+\hspace{1em}
+\justifying
+Această clasă conține implementarea pentru trenul principal. Va conține doi vectori de Threaduri $ S\_Th $ si $ D\_Th $ și 3 vectori de mașini \textit{bridge}, \textit{S} si \textit{D}, dar mai conține 3 semafoare $ semaphore\_bridge\_0 $, $ semaphore\_bridge\_n $ si $ Sectiune\_critica $, două din semafoare fiind responsabile pentru intrarea și respectiv ieșirea de pe pod iar unul pentru secțiunea critică. Tot în această clasă initializez vectorii de threaduri și de mașini și semafoarele. In funcția \textbf{run()} voi nu porni executia threadurilor atât pentru mașinile din stanga cat si pentru cele din dreapta.
+
+\subsection {Clasa SThread}
+\hspace{1em}
+\justifying
+Această clasă va fi responsabilă pentru gestionarea Mașinilor din coloana din stânga. Ea va putea introduce muta sau scoate mașini de pe pod.
+
+\subsection {Clasa DThread}
+\hspace{1em}
+\justifying
+Această clasă va fi responsabilă pentru gestionarea Mașinilor din coloana din dreapta. Ea va putea introduce muta sau scoate mașini de pe pod.
+
+
+\newpage
+\section{Codul Surs\u{a}}
+
+\subsection{Main.java}
+\lstinputlisting[style=Java]{Main.java}
+\newpage
+
+\subsection{Masina.java}
+\lstinputlisting[style=Java]{Masina.java}
+\newpage
+
+\subsection{Read.java}
+\lstinputlisting[style=Java]{Read.java}
+\newpage
+
+\subsection{Write.java}
+\lstinputlisting[style=Java]{Write.java}
+\newpage
+
+\subsection{MainThread.java}
+\lstinputlisting[style=Java]{MainThread.java}
+\newpage
+
+\subsection{SThread.java}
+\lstinputlisting[style=Java]{SThread.java}
+\newpage
+
+\subsection{DThread.java}
+\lstinputlisting[style=Java]{DThread.java}
+\newpage
+
+\section{Input si Output}
+
+\subsection{Input}
+Datele de intrare se gasesc in fiserul \textit{Input.txt}.
+\lstinputlisting[style=CStyle]{in.txt}
+
+\subsection{Output}
+Datele de iesire se afiseaza in consola.
+\lstinputlisting[style=CStyle]{out.txt}
+
+\newpage
+\section{Compatibilitate}
+Proiectul a fost realizat in sitemul de operare \textit{Linux} versiunea \textit{Mint 18.3 Cinnamon 64-bit}
+\\IDE: \textit{IntelliJ IDEA 2017.1.5}
+\\JRE: \textit{1.8.0$\_$112-release-736-b21 amd64}
+\\JVM: \textit{OpenJDK 64-Bit Server VM by JetBrains s.r.o}
+
+
+\end{document}
