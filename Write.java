@@ -3,11 +3,11 @@
  */
 public class Write
 {
-    protected static void console()
+    protected synchronized static void console()
     {
-        for (int i = 0; i < MainThread.n; i++) {
-            if (MainThread.bridge[i] != null) {
-                System.out.print(MainThread.bridge[i].Get_numarinmatriculare() + " ");
+        for (int i = 0; i < Main.tempn; i++) {
+            if (Main.Obj_Bridge.Get_bridge(i) != null) {
+                System.out.print(Main.Obj_Bridge.Get_bridge(i).Get_numarinmatriculare() + " ");
             } else {
                 System.out.print("null ");
             }

@@ -15,7 +15,7 @@ public class Read
             in = new FileReader("Input.txt");
             br = new BufferedReader(in);
             Masina tempMasina;
-            for(int i=0;i<3;i++) {
+            for(int i=0;i<5;i++) {
                 temp1 = br.readLine();
             }
 
@@ -32,7 +32,7 @@ public class Read
                 temp2=br.readLine();
                 temp3=br.readLine();
                 temp4=br.readLine();
-                tempMasina = new Masina(temp1,temp2,temp3,temp4);
+                tempMasina = new Masina(i,temp1,temp2,temp3,temp4);
                 MainThread.S[i]=tempMasina;
             }
             for(int i=0;i<MainThread.nD;i++){
@@ -48,7 +48,7 @@ public class Read
                 temp2=br.readLine();
                 temp3=br.readLine();
                 temp4=br.readLine();
-                tempMasina = new Masina(temp1,temp2,temp3,temp4);
+                tempMasina = new Masina(i,temp1,temp2,temp3,temp4);
                 MainThread.D[i]=tempMasina;
             }
             in.close();
@@ -64,11 +64,15 @@ public class Read
             in = new FileReader("Input.txt");
             br = new BufferedReader(in);
             temp = br.readLine();
+            Main.tempn=Integer.parseInt(temp);
+            temp = br.readLine();
+            Main.tempk=Integer.parseInt(temp);
+            temp = br.readLine();
+            Main.tempstop=Integer.parseInt(temp);
+            temp = br.readLine();
             Main.tempnS=Integer.parseInt(temp);
             temp = br.readLine();
             Main.tempnD=Integer.parseInt(temp);
-            temp = br.readLine();
-            Main.tempn=Integer.parseInt(temp);
         }catch (Exception e) {
             System.err.println(e);
         }

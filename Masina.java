@@ -4,12 +4,18 @@
 public class Masina
 {
     private String producator,model,anul,numarinmatriculare;
-    Masina(String valueofproducator, String valueofmodel, String valueofanul, String valueofnumarinmatriculare)
+    private int address;
+    Masina(int valueofaddress, String valueofproducator, String valueofmodel, String valueofanul, String valueofnumarinmatriculare)
     {
+        this.address=valueofaddress;
         this.producator=valueofproducator;
         this.model=valueofmodel;
         this.anul=valueofanul;
         this.numarinmatriculare=valueofnumarinmatriculare;
+    }
+    protected int Get_address()
+    {
+        return this.address;
     }
     protected String Get_producator()
     {
