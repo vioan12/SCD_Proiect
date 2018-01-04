@@ -5,6 +5,7 @@ import java.util.concurrent.Semaphore;
  */
 public class Bridge
 {
+    private volatile boolean isRunning = true;
     private Masina[] bridge;
     private int n;
     private Masina masina;
@@ -43,7 +44,9 @@ public class Bridge
             return result;
         }else{
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
             return result;
@@ -72,7 +75,9 @@ public class Bridge
             return result;
         }else{
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
             return result;
@@ -93,7 +98,9 @@ public class Bridge
             return result;
         }else{
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
             return result;
@@ -114,7 +121,9 @@ public class Bridge
             return result;
         }else{
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
             return result;
@@ -143,7 +152,9 @@ public class Bridge
             return result;
         }else{
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
             return result;
@@ -172,7 +183,9 @@ public class Bridge
             return result;
         } else {
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
             return result;
@@ -188,7 +201,9 @@ public class Bridge
             notify();
         } else {
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
         }
@@ -203,7 +218,9 @@ public class Bridge
             notify();
         } else {
             try {
-                wait();
+                if(isRunning==true) {
+                    wait();
+                }
             } catch (InterruptedException e) {
             }
         }
@@ -229,6 +246,9 @@ public class Bridge
     protected synchronized int Get_n()
     {
         return this.n;
+    }
+    protected synchronized void stopThread() {
+        isRunning = false;
     }
 
 }
