@@ -20,14 +20,10 @@ public class SRunnable implements Runnable
     public void run()
     {
         princ();
-        try {
-            System.out.println("XXXXX");
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println("XXXXX");
+        thread.interrupt();
     }
-    private synchronized void princ()
+    private void princ()
     {
         while (MainThread.cnt_stop < MainThread.stop) {
             if (cnt_k < MainThread.k) {
@@ -46,6 +42,9 @@ public class SRunnable implements Runnable
                         bridge.semaphore_sw_S();
                         cnt_k = 0;
                         MainThread.cnt_stop++;
+                        if(MainThread.cnt_stop == MainThread.stop){
+                            bridge.stopThread();
+                        }
                     } else {
                         if (bridge.remove_S(masina) == true) {
                         } else {
