@@ -1,6 +1,6 @@
 # SCD_Proiect
 
-[SCD.pdf](https://github.com/vioan12/SCD_Proiect/blob/master/SCD.pdf)
+Documentatia: [SCD.pdf](https://github.com/vioan12/SCD_Proiect/blob/master/SCD.pdf)
 
 Implementarea cu semafoare se afla in [dev](https://github.com/vioan12/SCD_Proiect/tree/dev)
 
